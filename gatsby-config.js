@@ -6,5 +6,14 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: "sayeem's portfolio",
+    description:
+      "this site is created to showcase personal resume and projects",
+  },
+  plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+  ],
 }
