@@ -1,18 +1,45 @@
 import React from "react"
 import Layout from "../components/Layout"
-import big from "../assets/images/img_1.jpg"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
+import { Col } from "react-bootstrap"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-export default function Home() {
+export default function Home({ data }) {
+  console.log(data)
   return (
     <Layout>
-      <h1>Hi, I am Sayeem</h1>
-      {/* <img src={big} alt="myimg" style={{ maxWidth: "200px" }} /> */}
-      <StaticImage
-        src="../assets/images/img_1.jpg"
-        alt="myimg"
-        placeholder="tracedSVG"
-      />
+      <Col xs={12} sm={6} style={{ paddingLeft: 0 }}>
+        <div className="inner-content">
+          <div className="fill-block">
+            <GatsbyImage
+              image={
+                data.wpPage.featuredImage.node.localFile.childImageSharp
+                  .gatsbyImageData
+              }
+            />
+          </div>
+        </div>
+      </Col>
+      <Col xs={12} sm={6}>
+        hello
+      </Col>
     </Layout>
   )
 }
+
+export const data = graphql`
+  query HomeQuery {
+    wpPage(slug: { eq: "home" }) {
+      content
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
+            }
+          }
+        }
+      }
+    }
+  }
+`

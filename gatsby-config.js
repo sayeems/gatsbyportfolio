@@ -23,7 +23,16 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-wordpress`,
-      options: { url },
+      options: {
+        url,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
+      },
     },
   ],
 }
