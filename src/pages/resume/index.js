@@ -9,7 +9,6 @@ const expYears = new Date().getFullYear() - 2014
 
 export default function Resume({ data }) {
   const { skill, education, experience } = data
-  // console.log(skill)
   return (
     <Layout>
       <div className="section-inner custom-page-content">

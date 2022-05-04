@@ -21,6 +21,16 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+a {
+  color: #ff714a;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
 h1,
 h2,
 h3,
@@ -276,7 +286,7 @@ body {
   height: auto;
   width: 100%;
   min-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: transparent;
   padding: 50px 70px 70px;
   background-color: #fff;
@@ -531,6 +541,12 @@ h3.comment-reply-title {
 .lm-info-block h4 {
   font-size: 16px;
   margin-top: 10px;
+}
+
+.lm-info-block svg {
+  position: relative;
+  font-size: 40px;
+  color: #b5b5b5;
 }
 /* media query */
 @media only screen and (min-width: 991px) {
