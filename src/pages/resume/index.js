@@ -3,14 +3,21 @@ import Layout from "../../components/Layout"
 import { Row, Col } from "react-bootstrap"
 import Timeline from "../../components/Timeline"
 import Skill from "../../components/Skill"
+import { graphql } from "gatsby"
 
-function Resume() {
+const expYears = new Date().getFullYear() - 2014
+
+export default function Resume({ data }) {
+  const { skill, education, experience } = data
+  // console.log(skill)
   return (
     <Layout>
       <div className="section-inner custom-page-content">
         <div className="section-title-block second-style">
           <h2 className="section-title">Resume</h2>
-          <h5 className="section-description">Years of experience</h5>
+          <h5 className="section-description">
+            {expYears} Years of experience
+          </h5>
         </div>
         <div className="section-content">
           <Row>
@@ -20,13 +27,17 @@ function Resume() {
                   <h3>Education</h3>
                 </div>
                 <div className="timeline timeline-second-style clearfix bs-30">
-                  <Timeline />
+                  {education.edges.map(ex => (
+                    <Timeline events={ex.node} key={ex.node.id} />
+                  ))}
                 </div>
                 <div className="block-title">
                   <h3>Experience</h3>
                 </div>
                 <div className="timeline timeline-second-style clearfix">
-                  <Timeline />
+                  {experience.edges.map(ex => (
+                    <Timeline events={ex.node} key={ex.node.id} />
+                  ))}
                 </div>
               </div>
             </Col>
@@ -35,7 +46,9 @@ function Resume() {
                 <div className="block-title">
                   <h3>Skills</h3>
                   <div className="skills-info skills-second-style">
-                    <Skill />
+                    {skill.edges.map(sk => (
+                      <Skill skills={sk.node} key={sk.node.id} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -47,4 +60,62 @@ function Resume() {
   )
 }
 
-export default Resume
+export const skill = graphql`
+  query MyData {
+    skill: allWpPost(
+      filter: {
+        categories: { nodes: { elemMatch: { name: { eq: "skill" } } } }
+      }
+      sort: { fields: acf_skill___order, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          title
+          acf_skill {
+            percentage
+            order
+          }
+        }
+      }
+    }
+    education: allWpPost(
+      filter: {
+        categories: { nodes: { elemMatch: { name: { eq: "education" } } } }
+      }
+      sort: { fields: acf_education___order, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          title
+          acf_experience: acf_education {
+            order
+            organization
+            shortDescription
+            year
+          }
+        }
+      }
+    }
+    experience: allWpPost(
+      filter: {
+        categories: { nodes: { elemMatch: { name: { eq: "experience" } } } }
+      }
+      sort: { fields: acf_experience___order, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          title
+          acf_experience {
+            order
+            organization
+            shortDescription
+            year
+          }
+        }
+      }
+    }
+  }
+`

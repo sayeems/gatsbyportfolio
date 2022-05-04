@@ -12,8 +12,6 @@ import {
 import TextCaurosel from "../components/TextCaurosel"
 
 export default function Home({ data }) {
-  console.log(data)
-  // console.log(data.wpPage.acf_home)
   return (
     <Layout>
       <div className="section-inner start-page-full-width">
@@ -34,7 +32,6 @@ export default function Home({ data }) {
           <Col xs={12} sm={6} style={{ padding: 0 }}>
             <div className="inner-content">
               <div className="hp-text-block">
-                {/* <div className="carousel">{data.wpPage.acf_home.titles}</div> */}
                 <div className="carousel">
                   <TextCaurosel longText={data.wpPage.acf_home.titles} />
                 </div>
