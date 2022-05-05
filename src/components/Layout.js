@@ -2,9 +2,9 @@ import React from "react"
 import Leftbar from "./Leftbar"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../assets/css/main.css"
-import { motion } from "framer-motion"
 import { Helmet } from "react-helmet"
 import socialImage from "../assets/images/sayeem_social_cover_twitter.jpg"
+import { AnimatePresence, motion } from "framer-motion"
 
 const Layout = ({ children }) => {
   return (
@@ -50,7 +50,16 @@ const Layout = ({ children }) => {
       <Leftbar />
       <div className="site-main">
         <div className="pt-wrapper">
-          <motion.section className="pt-page">{children}</motion.section>
+          <AnimatePresence>
+            <motion.section
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="pt-page"
+            >
+              {children}
+            </motion.section>
+          </AnimatePresence>
         </div>
       </div>
     </div>
