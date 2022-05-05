@@ -16,7 +16,7 @@ export default function Home({ data }) {
   return (
     <Layout>
       <Helmet>
-        <title>test</title>
+        <title>About - Sayeem</title>
       </Helmet>
       <div className="section-inner start-page-full-width">
         <Row style={{ marginRight: 0 }}>

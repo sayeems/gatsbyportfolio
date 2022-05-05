@@ -9,11 +9,15 @@ import {
   NotInterested,
   MarkunreadOutlined,
 } from "@mui/icons-material"
+import { Helmet } from "react-helmet"
 
 const Contact = ({ data }) => {
   const contactData = data.contactPage.nodes[0].acf_contact
   return (
     <Layout>
+      <Helmet>
+        <title>Contact - Sayeem</title>
+      </Helmet>
       <div className="section-inner custom-page-content">
         <div className="section-title-block second-style">
           <h2 className="section-title">Contact</h2>

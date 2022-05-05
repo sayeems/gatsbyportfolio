@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap"
 import Timeline from "../../components/Timeline"
 import Skill from "../../components/Skill"
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
 const expYears = new Date().getFullYear() - 2014
 
@@ -11,6 +12,9 @@ export default function Resume({ data }) {
   const { skill, education, experience } = data
   return (
     <Layout>
+      <Helmet>
+        <title>Resume - Sayeem</title>
+      </Helmet>
       <div className="section-inner custom-page-content">
         <div className="section-title-block second-style">
           <h2 className="section-title">Resume</h2>

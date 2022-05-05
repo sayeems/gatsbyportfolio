@@ -26,6 +26,7 @@ const logoQuery = graphql`
 const Leftbar = () => {
   const myMenu = useMenuQuery()
   const siteLogo = useStaticQuery(logoQuery)
+  console.log(siteLogo.wpMediaItem.localFile.childImageSharp.gatsbyImageData)
   return (
     <div className="header mobile-menu-hide">
       <div className="header-content clearfix">
