@@ -10,10 +10,14 @@ import {
   DirectionsCarOutlined,
 } from "@mui/icons-material"
 import TextCaurosel from "../components/TextCaurosel"
+import { Helmet } from "react-helmet"
 
 export default function Home({ data }) {
   return (
     <Layout>
+      <Helmet>
+        <title>test</title>
+      </Helmet>
       <div className="section-inner start-page-full-width">
         <Row style={{ marginRight: 0 }}>
           <Col xs={12} sm={6} style={{ paddingRight: 0 }}>
