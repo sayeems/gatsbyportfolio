@@ -4,11 +4,14 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+const path = require("path")
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: path.resolve(process.cwd(), ".env.local"),
 })
 
-const url = process.env.WPGQL_URL || `https://${process.env.WPGQL_URL}/graphql`
+const url =
+  process.env.WPGQL_URL ||
+  `https://${process.env.PANTHEON_CMS_ENDPOINT}/graphql`
 
 module.exports = {
   /* Your site config here */
