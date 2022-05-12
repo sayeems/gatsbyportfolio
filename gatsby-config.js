@@ -8,7 +8,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-// const url = process.env.WPGQL_URL || `https://${process.env.WPGQL_URL}/graphql`
+const url = process.env.WPGQL_URL || `https://${process.env.WPGQL_URL}/graphql`
 
 module.exports = {
   /* Your site config here */
@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `https://dev-wpssgtest.pantheonsite.io/graphql`,
+        url,
       },
     },
     {
