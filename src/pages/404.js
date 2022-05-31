@@ -24,7 +24,7 @@ const NotFound = () => {
           />
         </div>
         <div className="text-container" style={{ textAlign: "center" }}>
-          <h2>Awww...Don't Cry.</h2>
+          <h2>Awww...Don't Cry</h2>
           <p>It's just a 404 Error!!</p>
           <p>
             What you're looking for may have been misplaced in Long Term Memory
