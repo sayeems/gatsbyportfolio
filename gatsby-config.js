@@ -13,8 +13,11 @@ const url =
   process.env.WPGQL_URL ||
   `https://${process.env.PANTHEON_CMS_ENDPOINT}/graphql`
 
+// to build with prefix: PREFIX_PATHS=true gatsby buil
+
 module.exports = {
   /* Your site config here */
+  pathPrefix: `/wp-content/uploads/public`,
   siteMetadata: {
     title: "sayeem's portfolio",
     description:
