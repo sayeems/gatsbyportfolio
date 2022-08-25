@@ -37,7 +37,7 @@ jobs:
           server: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           sftp_only: true
-          delete_remote_files: true
+          delete_remote_files: false
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           remote_path: "/code/gatsby/"
