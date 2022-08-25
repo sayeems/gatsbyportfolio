@@ -1,0 +1,27 @@
+# This is the basic workflow to deploy code live
+
+name: Pipeline
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - master
+
+# This has only one job that is to deploy the code live
+jobs:
+  # This workflow contains a single job called "deploy"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v3
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          server-dir: /code/gatsby/
