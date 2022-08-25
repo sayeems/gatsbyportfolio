@@ -24,4 +24,4 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          server-dir: /code/gatsby
+          server-dir: /code/gatsby/
