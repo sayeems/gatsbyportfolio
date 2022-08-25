@@ -25,5 +25,4 @@ jobs:
           sftp_only: true
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          local_path: "./src/components/"
           remote_path: "/code/gatsby/"
