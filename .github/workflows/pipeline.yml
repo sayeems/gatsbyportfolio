@@ -17,11 +17,25 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v3
 
+      - name: Set Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
       - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          sftp_only: true
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          server-dir: /code/gatsby/
+          delete_remote_files: true
+          remote_path: "/code/gatsby/"
+          local_path: "./public/*"
