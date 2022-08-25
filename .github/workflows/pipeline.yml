@@ -18,11 +18,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Sync files
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          sftp_only: true
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          remote_path: "/code/gatsby/"
+          port: ${{ secrets.PORT }}
+          server-dir: /code/gatsby/
