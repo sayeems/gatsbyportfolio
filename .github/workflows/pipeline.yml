@@ -27,6 +27,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          PANTHEON_CMS_ENDPOINT: "dev-ss-gatsby-portfolio-be.pantheonsite.io"
 
       - name: Sync files
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
