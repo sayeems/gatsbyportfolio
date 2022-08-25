@@ -17,7 +17,7 @@ const url =
 
 module.exports = {
   /* Your site config here */
-  pathPrefix: `/wp-content/uploads/public`,
+  pathPrefix: `/gatsby`,
   siteMetadata: {
     title: "sayeem's portfolio",
     description:
