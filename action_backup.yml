@@ -36,5 +36,6 @@ jobs:
           sftp_only: true
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          delete_remote_files: true
           remote_path: "/code/gatsby/"
           local_path: "./public/*"
